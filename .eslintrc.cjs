@@ -29,12 +29,11 @@ module.exports = {
     }
   },
   "parserOptions": {
+    "ecmaVersion": 2021,
     "sourceType": "module",
     "allowImportExportEverywhere": true,
     "ecmaFeatures": {
-      "ecmaVersion": 2021,
       "modules": true,
-      "experimentalObjectRestSpread": true,
       "jsx": true
     }
   },
