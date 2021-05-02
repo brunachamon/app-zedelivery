@@ -7,7 +7,7 @@ describe('Loader', () => {
   it('should render a loader component in screen with classes', async () => {
     render(<Loader />)
 
-    expect(screen.getByRole('spinner')).toBeInTheDocument()
+    expect(screen.getByRole('status')).toBeInTheDocument()
     expect(screen.getByText('Carregando...')).toBeInTheDocument()
   })
 })
