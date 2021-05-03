@@ -1,6 +1,9 @@
 module.exports = {
   rootDir: "../../",
   verbose: true,
+  transform: {
+    "^.+\\.(js|jsx)$": "babel-jest"
+  },
   moduleFileExtensions: [
     "js",
     "jsx"
@@ -15,12 +18,17 @@ module.exports = {
     "!**/node_modules/**"
   ],
   coveragePathIgnorePatterns: [
-    "<rootDir>/build/",
+    "<rootDir>/dist/",
     "<rootDir>/config/",
     "<rootDir>/coverage/",
     "<rootDir>/node_modules/",
     "<rootDir>/src/assets/",
     "<rootDir>/src/routes/index.js",
+    "<rootDir>/src/utils/constants.js",
     "<rootDir>/src/pages",
-  ]
+    "<rootDir>/vite.config.js"
+  ],
+  moduleNameMapper: {
+    "\\.(css|scss|sass)$": "identity-obj-proxy",
+  }
 }

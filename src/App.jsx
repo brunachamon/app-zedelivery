@@ -1,16 +1,18 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-// import Modal from './components/Modal'
-
+import Loader from './components/Loader'
+import Routes from './routes'
 import './App.scss'
 
 const App = () => {
 
-  console.log('>>', import.meta.env)
+  // console.log('>>', import.meta.env)
 
   return (
     <div>
       <header className="header">
+        <Loader />
         <p></p>
         {/* <Modal>
           <Modal.Header>oaifhiahfe</Modal.Header>
@@ -20,6 +22,10 @@ const App = () => {
         {/* <a href="#modal" className="btn btn-big">Modal!</a> */}
 
       </header>
+
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
     </div>
   )
 }

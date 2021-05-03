@@ -1,13 +1,13 @@
 import { lazy, Suspense } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
-import { Paths } from 'utils/constants'
-import { Loader } from '../components/Loader'
+import { Paths } from '../utils/constants'
+import Loader from '../components/Loader'
+
+const Home = lazy(() => import('../pages/Home'))
+const ProductsList = lazy(() => import('../pages/Products/List'))
 
 const Routes = props => {
-  const Home = lazy(() => import('../pages/Home'))
-  const ProductsList = lazy(() => import('../pages/ProductsList'))
-
   return (
     <Suspense fallback={<Loader />}>
       <Route exact path={Paths.root}>
