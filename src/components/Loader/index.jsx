@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 
 import './style.scss'
 
@@ -10,5 +10,9 @@ const Loader = ({
     <div className="spinner-text">Carregando...</div>
   </div>
 )
+
+Loader.propTypes = {
+  className: PropTypes.string
+}
 
 export default Loader
