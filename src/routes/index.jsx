@@ -1,11 +1,11 @@
-import { lazy, Suspense } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
 import { Paths } from '../utils/constants'
 import Loader from '../components/Loader'
 
-const Home = lazy(() => import('../pages/Home'))
-const ProductsList = lazy(() => import('../pages/Products/List'))
+const Home = lazy(() => import('../pages/Home/index.jsx'))
+const ProductsList = lazy(() => import('../pages/Products/List/index.jsx'))
 
 const Routes = props => {
   return (
@@ -25,10 +25,6 @@ const Routes = props => {
         path={`${Paths.products}/${Paths.list}`}
         component={ProductsList}
         {...props} />
-
-      {/* <Route
-        render={() => <Redirect to={Paths.login} />}
-      /> */}
     </Suspense>
   )
 }
