@@ -1,0 +1,25 @@
+.places {
+  padding: 0;
+  margin: 0;
+  // background-image: url(https://courier-images-web.imgix.net/static/img/img-welcome-bg.png);
+
+  &-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 35vh;
+  }
+
+  &-input {
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    width: 40rem;
+    height: 3rem;
+    padding: 0 1rem;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    outline: none;
+    text-overflow: ellipses;
+  }
+}
