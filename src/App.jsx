@@ -5,13 +5,11 @@ import { useJsApiLoader } from '@react-google-maps/api'
 import Routes from './routes'
 import './App.scss'
 
-const libraries = ['places']
-
 const App = () => {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'AIzaSyBLIAn2H8RDjWQIw3cmq01eL2GLp-fYMGk',
-    libraries
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_KEY,
+    libraries: [import.meta.env.VITE_GOOGLE_MAPS_LIBRARIES]
   })
 
   return (

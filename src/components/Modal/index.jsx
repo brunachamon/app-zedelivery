@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './style.scss'
 
@@ -31,6 +32,23 @@ const Modal = ({
       </div>
     </div>
   )
+}
+
+ModalHeader.propTypes = {
+  children: PropTypes.node
+}
+
+ModalBody.propTypes = {
+  children: PropTypes.node
+}
+
+ModalFooter.propTypes = {
+  children: PropTypes.node
+}
+
+Modal.propTypes = {
+  children: PropTypes.node,
+  id: PropTypes.string
 }
 
 Modal.Header = ModalHeader

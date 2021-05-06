@@ -1,20 +1,38 @@
 .places {
   padding: 0;
   margin: 0;
-  // background-image: url(https://courier-images-web.imgix.net/static/img/img-welcome-bg.png);
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+
+  &-image {
+    min-height: 100vh;
+    background: #f5e9da
+      url(https://courier-images-web.imgix.net/static/img/img-welcome-bg.png?auto=compress,format&fit=max&w=undefined&h=undefined&dpr=2&fm=png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media (min-width: 768px) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
 
   &-box {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    margin-top: 35vh;
+    flex-grow: 1;
+    margin-top: 10vh;
+    width: 100%;
   }
 
   &-input {
     box-sizing: border-box;
     border: 1px solid transparent;
-    width: 40rem;
+    width: 30rem;
     height: 3rem;
     padding: 0 1rem;
     border-radius: 3px;

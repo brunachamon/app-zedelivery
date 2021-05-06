@@ -1,17 +1,20 @@
 module.exports = {
   rootDir: "../../",
+  automock: true,
   verbose: true,
   transform: {
     "^.+\\.(js|jsx)$": "babel-jest"
   },
+  setupFiles: [
+    "<rootDir>/src/setupTests.js"
+  ],
   moduleFileExtensions: [
     "js",
     "jsx"
   ],
   moduleDirectories: [
     "node_modules",
-    "bower_components",
-    "shared",
+    "bower_components"
   ],
   collectCoverageFrom: [
     "**/*.{js,jsx}",

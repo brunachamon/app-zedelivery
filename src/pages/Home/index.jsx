@@ -1,22 +1,23 @@
 import React, { useContext } from 'react'
+import { useDispatch } from 'react-redux'
 
-import { googleMapsContext } from '../../App'
 import InputSearch from '../../components/InputSearch'
 import Loader from '../../components/Loader'
+import { setLocation } from '../../slices/location'
+import { googleMapsContext } from '../../App'
 
 import './style.scss'
 
 const Home = () => {
+  const dispatch = useDispatch()
   const { isLoaded: isGoogleMapsLoaded = false } = useContext(googleMapsContext);
 
-  const handlePlaceSelected = (place) => console.log('searchBoxRef', place)
-
-  // useEffect(() => {
-
-  // }, [])
+  const handlePlaceSelected = (place) => dispatch(setLocation(place))
 
   return (
     <div className="places">
+      <div className="places-image"></div>
+
       {isGoogleMapsLoaded ? (
         <div className="places-box">
           <div>
