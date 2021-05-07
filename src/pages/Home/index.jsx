@@ -1,14 +1,13 @@
-import React, { useContext, useEffect, useMemo } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import InputSearch from '../../components/InputSearch'
 import Loader from '../../components/Loader'
-import { setLocation } from '../../slices/location'
+import InputSearch from '../../components/InputSearch'
+import useDistribuitors from '../../hooks/useDistribuitors'
 import { googleMapsContext } from '../../App'
+import { setLocation } from '../../slices/location'
 
 import './style.scss'
-
-import useDistribuitors from '../../hooks/useDistribuitors'
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -24,8 +23,14 @@ const Home = () => {
     algorithm: 'NEAREST'
   }), [location])
 
-  const results = useDistribuitors(params)
+  const {
+    data: {
+      pocSearch: results = []
+    } = {},
+    errors = {}
+  } = useDistribuitors(params)
 
+  console.log('Parceiros encontrados >>>', results, errors)
 
   const handlePlaceSelected = (place) => {
     dispatch(setLocation(place))

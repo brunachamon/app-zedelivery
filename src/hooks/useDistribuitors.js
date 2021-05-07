@@ -21,8 +21,6 @@ const useDistribuitors = (variables) => {
     shouldRetryOnError: true
   })
 
-  console.log('>>>>>>', data, error)
-
   return { data, error };
 }
 
