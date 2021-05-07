@@ -12,8 +12,7 @@ Note: The application will run in localhost:3000
 - React 17 :rocket:
 - Jest + React testing library (To test behavior in components)
 - Vite (To build and serve a development environment)
-- Axios (To make requests)
-- DOM purify (To avoid XSS attack)
+- useSWR with graphql-request to make requests :rocket:
 - Eslint with JSX, A11y, React, React Hooks, Jest and Imports (to organize order)
 - Sass and BEM approach to improve velocity developing layout
 
@@ -25,4 +24,4 @@ Note: The application will run in localhost:3000
 
 - Run `npm run lint` in root folder
 
-Delivered coverage: ~50%
+Delivered coverage:

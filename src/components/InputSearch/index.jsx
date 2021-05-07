@@ -13,9 +13,20 @@ const InputSearch = ({
     <StandaloneSearchBox
       ref={searchBoxRef}
       onPlacesChanged={() => {
-        const place = searchBoxRef.current.state.searchBox.getPlaces() || {};
+        const {
+          formatted_address: fullAdress = '',
+          geometry: {
+            location
+          } = {}
+        } = searchBoxRef.current?.state?.searchBox?.getPlaces()?.[0] || {};
 
-        handlePlaceSelected && handlePlaceSelected(place)
+        const adress = {
+          fullAdress,
+          lat: location.lat() || null,
+          lng: location.lng() || null
+        }
+
+        handlePlaceSelected && handlePlaceSelected(adress)
       }}>
       <input
         type="text"

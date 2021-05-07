@@ -2,12 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const locationSlice = createSlice({
   name: 'location',
-  initialState: {
-    location: {}
-  },
+  initialState: {},
   reducers: {
-    setLocation: (state, newLocation) => {
-      state.location = newLocation
+    setLocation: (state, { payload = {} }) => {
+      state.location = payload
     }
   },
 })
