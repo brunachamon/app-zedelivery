@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import { StandaloneSearchBox } from '@react-google-maps/api'
 import PropTypes from 'prop-types'
 
@@ -7,7 +7,7 @@ const InputSearch = ({
   className = '',
   placeholder = 'Digite um endereço'
 }) => {
-  const searchBoxRef = useRef()
+  const searchBoxRef = React.useRef()
 
   return (
     <StandaloneSearchBox
