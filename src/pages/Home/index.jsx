@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import Loader from '../../components/Loader'
 import InputSearch from '../../components/InputSearch'
+import CardEmptyState from '../../components/CardEmptyState'
 import useDistribuitorProducts from '../../hooks/useDistribuitorProducts'
 import { setLocation } from '../../slices/location'
 import { googleMapsContext } from '../../App'
@@ -20,7 +21,7 @@ const Home = () => {
 
   const renderEmptyState = () => {
     if (hasAdressFilled) {
-      return products.length === 0 && <div className="py-2">Nenhum parceiro disponível encontrado =(</div>
+      return products.length === 0 && <CardEmptyState />
     }
 
     return null
