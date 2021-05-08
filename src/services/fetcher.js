@@ -1,3 +1,3 @@
 import { request } from 'graphql-request'
 
-export const fetcher = (query, url, variables) => request(url, query, variables)
+export const fetcher = async (query, url, variables) => await request(url, query, variables)

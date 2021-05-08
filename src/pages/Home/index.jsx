@@ -1,40 +1,33 @@
-import React, { useContext, useMemo } from 'react'
+import React, { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Loader from '../../components/Loader'
 import InputSearch from '../../components/InputSearch'
-import useDistribuitors from '../../hooks/useDistribuitors'
-import { googleMapsContext } from '../../App'
+import useDistribuitorProducts from '../../hooks/useDistribuitorProducts'
 import { setLocation } from '../../slices/location'
+import { googleMapsContext } from '../../App'
 
 import './style.scss'
 
 const Home = () => {
   const dispatch = useDispatch()
-  const { location } = useSelector(state => state.location)
+  const { location = {} } = useSelector(state => state.location)
   const { isLoaded: isGoogleMapsLoaded = false } = useContext(googleMapsContext);
 
-  const now = Date.now()
+  const { products } = useDistribuitorProducts(location)
 
-  const params = useMemo(() => ({
-    now: '2021-05-06T21:49:00.000Z',
-    lat: location ? location.lat?.toString() : '',
-    long: location ? location.lng?.toString() : '',
-    algorithm: 'NEAREST'
-  }), [location])
+  const hasAdressFilled = location.lat && location.lng;
 
-  const {
-    data: {
-      pocSearch: results = []
-    } = {},
-    errors = {}
-  } = useDistribuitors(params)
+  const renderEmptyState = () => {
+    if (hasAdressFilled) {
+      return products.length === 0 && <div className="py-2">Nenhum parceiro disponível encontrado =(</div>
+    }
 
-  console.log('Parceiros encontrados >>>', results, errors)
+    return null
+  }
 
   const handlePlaceSelected = (place) => {
     dispatch(setLocation(place))
-    // dispatch(fetchDistribuitors({ lat: place.lat, lng: place.lng }))
   }
 
   return (
@@ -44,10 +37,12 @@ const Home = () => {
       {isGoogleMapsLoaded ? (
         <div className="places-box p-3">
           <div>
-            <h2>Digite seu endereço para pesquisar distribuidores</h2>
+            <h2>Digite seu endereço para pesquisar distribuidores próximos a você</h2>
           </div>
 
           <InputSearch handlePlaceSelected={handlePlaceSelected} className="places-input" />
+
+          {renderEmptyState()}
         </div>
       ) : (
         <Loader />

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 const InputSearch = ({
   handlePlaceSelected,
+  value,
   className = '',
   placeholder = 'Digite um endereço'
 }) => {
@@ -32,6 +33,7 @@ const InputSearch = ({
         type="text"
         placeholder={placeholder}
         className={className}
+        value={value}
       />
     </StandaloneSearchBox>
   )
@@ -40,7 +42,8 @@ const InputSearch = ({
 InputSearch.propTypes = {
   handlePlaceSelected: PropTypes.func,
   className: PropTypes.string,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  value: PropTypes.string
 }
 
 export default InputSearch
