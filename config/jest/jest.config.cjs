@@ -13,8 +13,7 @@ module.exports = {
     "jsx"
   ],
   moduleDirectories: [
-    "node_modules",
-    "bower_components"
+    "node_modules"
   ],
   collectCoverageFrom: [
     "**/*.{js,jsx}",
@@ -32,6 +31,6 @@ module.exports = {
     "<rootDir>/vite.config.js"
   ],
   moduleNameMapper: {
-    "\\.(css|scss|sass)$": "identity-obj-proxy",
+    "^.+\\.(css|scss|sass)$": "identity-obj-proxy"
   }
 }

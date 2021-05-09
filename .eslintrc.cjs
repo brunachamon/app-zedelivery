@@ -3,7 +3,8 @@ module.exports = {
     "node": true,
     "commonjs": true,
     "es6": true,
-    "browser": true
+    "browser": true,
+    "jest": true
   },
   "plugins": [
     "react",
@@ -48,6 +49,7 @@ module.exports = {
     "require-jsdoc": 0,
     "template-curly-spacing": 0,
     "default-param-last": 1,
+    "import/no-cycle": [2, { maxDepth: 1 }],
     "no-implicit-coercion": [
       2,
       {
@@ -91,8 +93,6 @@ module.exports = {
     "react/prefer-stateless-function": 1,
     "react/no-danger": 1,
     "react/prop-types": 1,
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
     "react/destructuring-assignment": "warn",
     "react/no-unsafe": "warn",
     // React Hooks
