@@ -2,6 +2,7 @@ module.exports = {
   rootDir: "../../",
   verbose: true,
   testEnvironment: "jsdom",
+  collectCoverage: true,
   transform: {
     "^.+\\.(js|jsx)$": "babel-jest"
   },
@@ -29,6 +30,8 @@ module.exports = {
     "<rootDir>/coverage/",
     "<rootDir>/node_modules/",
     "<rootDir>/src/assets/",
+    "<rootDir>/src/services/",
+    "<rootDir>/src/hooks/",
     "<rootDir>/src/routes/index.js",
     "<rootDir>/src/utils/constants.js",
     "<rootDir>/src/pages",
