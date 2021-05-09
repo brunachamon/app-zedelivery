@@ -22,7 +22,7 @@ const Routes = props => {
 
       <Route
         exact
-        path={`${Paths.products}/${Paths.list}`}
+        path={`${Paths.products}${Paths.list}`}
         component={ProductsList}
         {...props} />
     </Suspense>
