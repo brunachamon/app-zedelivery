@@ -4,12 +4,13 @@
 
 ## Running
 * Run `npm install`or `yarn install`
-* run `npm start` and have a fun coding =)
+* Run `npm start` and be free to contribute =)
 
 Note: The application will run in localhost:3000
 
 ## Archicteture:
-- React 17 :rocket:
+- React :rocket:
+- Redux Toolkit (to manage state and actions)
 - Jest + React testing library (To test behavior in components)
 - Vite (To build and serve a development environment)
 - useSWR with graphql-request to make requests :rocket:
