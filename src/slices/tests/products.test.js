@@ -1,19 +1,19 @@
 
 import productsReducer, {
   setProducts
-} from '../products';
+} from "../products";
 
-describe('productsSlice', () => {
-  describe('reducers', () => {
-    it('returns initial state', () => {
+describe("productsSlice", () => {
+  describe("reducers", () => {
+    it("returns initial state", () => {
       const nextState = productsReducer([], []);
 
       expect(nextState).toStrictEqual([]);
     });
   });
 
-  describe('Testing Reducers', () => {
-    it('setProducts', async () => {
+  describe("Testing Reducers", () => {
+    it("setProducts", async () => {
       const payload = [
         {
           id: "8868",
@@ -24,7 +24,7 @@ describe('productsSlice', () => {
         }
       ];
       const expectedAction = {
-        type: 'products/setProducts',
+        type: "products/setProducts",
         payload
       };
 

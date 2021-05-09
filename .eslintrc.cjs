@@ -40,6 +40,7 @@ module.exports = {
   },
   "rules": {
     "semi": 2,
+    "quotes": 2,
     "no-extra-semi": 2,
     "no-console": 2,
     "newline-before-return": 2,
@@ -51,6 +52,7 @@ module.exports = {
     "template-curly-spacing": 2,
     "default-param-last": 1,
     "import/no-cycle": [2, { maxDepth: 1 }],
+    "quote-props": [2, "consistent"],
     "no-implicit-coercion": [
       2,
       {

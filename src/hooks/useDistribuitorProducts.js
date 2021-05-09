@@ -1,15 +1,15 @@
-import { useMemo } from 'react';
-import { gql } from 'graphql-request';
-import useSWR from 'swr';
+import { useMemo } from "react";
+import { gql } from "graphql-request";
+import useSWR from "swr";
 
-import { fetcher } from '../services';
+import { fetcher } from "../services";
 
 const useDistribuitorProducts = (location) => {
   const variables = useMemo(() => ({
     now: new Date().toISOString(),
-    lat: location ? location.lat?.toString() : '',
-    long: location ? location.lng?.toString() : '',
-    algorithm: 'NEAREST'
+    lat: location ? location.lat?.toString() : "",
+    long: location ? location.lng?.toString() : "",
+    algorithm: "NEAREST"
   }), [location]);
 
   const hasValueSelected = (variables.lat && variables.long);
@@ -68,7 +68,7 @@ const useDistribuitorProducts = (location) => {
       }
     }`;
 
-  const params = useMemo(() => ({ id: distribuitor?.id, Search: '', categoryId: null }), [distribuitor?.id]);
+  const params = useMemo(() => ({ id: distribuitor?.id, Search: "", categoryId: null }), [distribuitor?.id]);
 
   const {
     data: {
