@@ -11,6 +11,7 @@ Note: The application will run in localhost:3000
 ## Archicteture:
 - React :rocket:
 - Redux Toolkit (to manage state and actions)
+- Redux Persist (to keep data in local storage saved when refresh pages)
 - Jest + React testing library (To test behavior in components)
 - Vite (To build and serve a development environment)
 - useSWR with graphql-request to make requests :rocket:
