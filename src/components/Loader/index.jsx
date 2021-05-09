@@ -1,19 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-import './style.scss'
+import "./style.scss";
 
 const Loader = ({
-  className = ''
+  className = ""
 }) => (
   <div className={`spinner-box p-2 ${className}`}>
     <div className="spinner-circle" role="status"></div>
     <div className="spinner-text">Carregando...</div>
   </div>
-)
+);
 
 Loader.propTypes = {
   className: PropTypes.string
-}
+};
 
-export default Loader
+export default Loader;

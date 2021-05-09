@@ -1,16 +1,16 @@
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import { useJsApiLoader } from '@react-google-maps/api'
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import { useJsApiLoader } from "@react-google-maps/api";
 
-import Routes from './routes'
-import './App.scss'
+import Routes from "./routes";
+import "./App.scss";
 
 const App = () => {
   const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
+    id: "google-map-script",
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_KEY,
     libraries: [import.meta.env.VITE_GOOGLE_MAPS_LIBRARIES]
-  })
+  });
 
   return (
     <div className="App">
@@ -20,9 +20,9 @@ const App = () => {
         </BrowserRouter>
       </googleMapsContext.Provider>
     </div>
-  )
-}
+  );
+};
 
-export const googleMapsContext = React.createContext({})
+export const googleMapsContext = React.createContext({});
 
-export default App
+export default App;

@@ -1,21 +1,21 @@
-import React from 'react'
-import { StandaloneSearchBox } from '@react-google-maps/api'
-import PropTypes from 'prop-types'
+import React from "react";
+import { StandaloneSearchBox } from "@react-google-maps/api";
+import PropTypes from "prop-types";
 
 const InputSearch = ({
   handlePlaceSelected,
   value,
-  className = '',
-  placeholder = 'Digite um endereço'
+  className = "",
+  placeholder = "Digite um endereço"
 }) => {
-  const searchBoxRef = React.useRef()
+  const searchBoxRef = React.useRef();
 
   return (
     <StandaloneSearchBox
       ref={searchBoxRef}
       onPlacesChanged={() => {
         const {
-          formatted_address: fullAdress = '',
+          formatted_address: fullAdress = "",
           geometry: {
             location
           } = {}
@@ -25,9 +25,9 @@ const InputSearch = ({
           fullAdress,
           lat: location.lat() || null,
           lng: location.lng() || null
-        }
+        };
 
-        handlePlaceSelected && handlePlaceSelected(adress)
+        handlePlaceSelected && handlePlaceSelected(adress);
       }}>
       <input
         type="text"
@@ -36,14 +36,14 @@ const InputSearch = ({
         value={value}
       />
     </StandaloneSearchBox>
-  )
-}
+  );
+};
 
 InputSearch.propTypes = {
   handlePlaceSelected: PropTypes.func,
   className: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string
-}
+};
 
-export default InputSearch
+export default InputSearch;

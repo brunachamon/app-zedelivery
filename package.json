@@ -7,7 +7,7 @@
     "start": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "lint": "eslint --ext js ./src --max-warnings 0 --fix",
+    "lint": "eslint --ext js,jsx ./src --max-warnings 0 --fix",
     "test": "jest --config ./config/jest/jest.config.cjs --coverage"
   },
   "dependencies": {

@@ -1,45 +1,45 @@
-import React, { useContext } from 'react'
-import { useHistory } from 'react-router'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useContext } from "react";
+import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 
-import Loader from '../../components/Loader'
-import InputSearch from '../../components/InputSearch'
-import CardEmptyState from '../../components/CardEmptyState'
-import useDistribuitorProducts from '../../hooks/useDistribuitorProducts'
-import { Paths } from '../../utils/constants'
-import { setLocation } from '../../slices/location'
-import { setProducts } from '../../slices/products'
-import { googleMapsContext } from '../../App'
+import Loader from "../../components/Loader";
+import InputSearch from "../../components/InputSearch";
+import CardEmptyState from "../../components/CardEmptyState";
+import useDistribuitorProducts from "../../hooks/useDistribuitorProducts";
+import { Paths } from "../../utils/constants";
+import { setLocation } from "../../slices/location";
+import { setProducts } from "../../slices/products";
+import { googleMapsContext } from "../../App";
 
-import './style.scss'
+import "./style.scss";
 
 const Home = () => {
-  const history = useHistory()
-  const dispatch = useDispatch()
-  const { location = {} } = useSelector(state => state.location)
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const { location = {} } = useSelector(state => state.location);
   const { isLoaded: isGoogleMapsLoaded = false } = useContext(googleMapsContext);
 
-  const { products } = useDistribuitorProducts(location)
+  const { products } = useDistribuitorProducts(location);
 
   const hasAdressFilled = location.lat && location.lng;
 
   if (hasAdressFilled && products.length > 0) {
-    dispatch(setProducts(products))
+    dispatch(setProducts(products));
 
-    history.push(`${Paths.products}${Paths.list}`)
+    history.push(`${Paths.products}${Paths.list}`);
   }
 
   const renderEmptyState = () => {
     if (hasAdressFilled) {
-      return products.length === 0 && <CardEmptyState />
+      return products.length === 0 && <CardEmptyState />;
     }
 
-    return null
-  }
+    return null;
+  };
 
   const handlePlaceSelected = (place) => {
-    dispatch(setLocation(place))
-  }
+    dispatch(setLocation(place));
+  };
 
   return (
     <div className="places">
@@ -60,7 +60,7 @@ const Home = () => {
       )}
 
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

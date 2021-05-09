@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const ErrorState = () => {
   return (
     <div>
       Algum erro aconteceu e não conseguimos completar a operação =(
     </div>
-  )
-}
+  );
+};
 
-export default ErrorState
+export default ErrorState;

@@ -101,11 +101,12 @@
 //     </Container>
 //   )
 // }
-import React from 'react'
+import React from "react";
 
 const ProductsList = () => {
-  console.log('>>> products list loaded')
-  return(<></>)
-}
+  console.log(">>> products list loaded");
 
-export default ProductsList
+return(<></>);
+};
+
+export default ProductsList;
