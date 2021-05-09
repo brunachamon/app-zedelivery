@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { useHistory } from "react-router";
+import React, { useContext, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import Loader from "../../components/Loader";
@@ -16,26 +16,27 @@ import "./style.scss";
 const Home = () => {
   const history = useHistory();
   const dispatch = useDispatch();
-  const { location = {} } = useSelector(state => state.location);
-  const { isLoaded: isGoogleMapsLoaded = false } = useContext(googleMapsContext);
 
+  const [isLoading, setIsLoading] = useState(false);
+  const { location = {} } = useSelector(state => state.location);
   const { products } = useDistribuitorProducts(location);
+  const { isLoaded: isGoogleMapsLoaded = false } = useContext(googleMapsContext);
 
   const hasAdressFilled = location.lat && location.lng;
 
-  if (hasAdressFilled && products.length > 0) {
-    dispatch(setProducts(products));
-
-    history.push(`${Paths.products}${Paths.list}`);
-  }
-
-  const renderEmptyState = () => {
+  useEffect(() => {
     if (hasAdressFilled) {
-      return products.length === 0 && <CardEmptyState />;
-    }
+      setIsLoading(true);
 
-    return null;
-  };
+      if (products.length === 0) {
+        setIsLoading(false);
+      } else {
+        dispatch(setProducts(products));
+
+        history.push(`${Paths.products}${Paths.list}`);
+      }
+    }
+  }, [dispatch, hasAdressFilled, history, products]);
 
   const handlePlaceSelected = (place) => {
     dispatch(setLocation(place));
@@ -53,7 +54,9 @@ const Home = () => {
 
           <InputSearch handlePlaceSelected={handlePlaceSelected} className="places-input" />
 
-          {renderEmptyState()}
+          {isLoading && <Loader />}
+
+          {(hasAdressFilled && !isLoading) && <CardEmptyState />}
         </div>
       ) : (
         <Loader />
