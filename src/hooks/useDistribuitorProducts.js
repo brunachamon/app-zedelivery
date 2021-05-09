@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
-import { gql } from 'graphql-request'
-import useSWR from 'swr'
+import { gql } from 'graphql-request';
+import useSWR from 'swr';
 
-import { fetcher } from '../services'
+import { fetcher } from '../services';
 
 const useDistribuitorProducts = (location) => {
   const variables = useMemo(() => ({
@@ -10,7 +10,7 @@ const useDistribuitorProducts = (location) => {
     lat: location ? location.lat?.toString() : '',
     long: location ? location.lng?.toString() : '',
     algorithm: 'NEAREST'
-  }), [location])
+  }), [location]);
 
   const hasValueSelected = (variables.lat && variables.long);
   const distribQuery = gql`
@@ -21,14 +21,14 @@ const useDistribuitorProducts = (location) => {
       status
       tradingName
     }
-  }`
+  }`;
 
   const { data } = useSWR(hasValueSelected ? [distribQuery, variables] : null,
     (query, variables) => fetcher(query, import.meta.env.VITE_API_ZEDELIVERY, variables), {
     revalidateOnFocus: false
-  })
+  });
 
-  const distribuitor = useMemo(() => data?.pocSearch[0], [data])
+  const distribuitor = useMemo(() => data?.pocSearch[0], [data]);
 
   const productsQuery = gql`
     query poc($id: ID!, $categoryId: Int, $search: String){
@@ -66,9 +66,9 @@ const useDistribuitorProducts = (location) => {
           }
         }
       }
-    }`
+    }`;
 
-  const params = useMemo(() => ({ id: distribuitor?.id, Search: '', categoryId: null }), [distribuitor?.id])
+  const params = useMemo(() => ({ id: distribuitor?.id, Search: '', categoryId: null }), [distribuitor?.id]);
 
   const {
     data: {
@@ -79,9 +79,9 @@ const useDistribuitorProducts = (location) => {
   } = useSWR([productsQuery, params],
     (query, variables) => fetcher(query, import.meta.env.VITE_API_ZEDELIVERY, variables), {
     revalidateOnFocus: false
-  })
+  });
 
   return { products };
-}
+};
 
-export default useDistribuitorProducts
+export default useDistribuitorProducts;

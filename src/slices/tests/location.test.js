@@ -14,13 +14,13 @@ describe('locationSlice', () => {
 
   describe('Testing Reducers', () => {
     it('setLocation', async () => {
-      const payload = { lat: 165165616, lng: 54646454, fullAdress: "Rua teste" }
+      const payload = { lat: 165165616, lng: 54646454, fullAdress: "Rua teste" };
       const expectedAction = {
         type: 'location/setLocation',
         payload
-      }
+      };
 
-      expect(setLocation(payload)).toEqual(expectedAction)
+      expect(setLocation(payload)).toEqual(expectedAction);
     });
   });
 });

@@ -3,8 +3,8 @@ const Paths = {
   home: '/home',
   products: '/products',
   list: '/list'
-}
+};
 
 export {
   Paths
-}
+};

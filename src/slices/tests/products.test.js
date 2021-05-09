@@ -22,13 +22,13 @@ describe('productsSlice', () => {
           rgb: false,
           title: "Skol 269ml - Unidade"
         }
-      ]
+      ];
       const expectedAction = {
         type: 'products/setProducts',
         payload
-      }
+      };
 
-      expect(setProducts(payload)).toEqual(expectedAction)
+      expect(setProducts(payload)).toEqual(expectedAction);
     });
   });
 });

@@ -39,15 +39,16 @@ module.exports = {
     }
   },
   "rules": {
+    "semi": 2,
+    "no-extra-semi": 2,
     "no-console": 2,
     "newline-before-return": 2,
     "newline-after-var": 2,
     "padded-blocks": 0,
     "no-multi-spaces": 2,
     "no-trailing-spaces": 2,
-    "class-methods-use-this": 0,
     "require-jsdoc": 0,
-    "template-curly-spacing": 0,
+    "template-curly-spacing": 2,
     "default-param-last": 1,
     "import/no-cycle": [2, { maxDepth: 1 }],
     "no-implicit-coercion": [
@@ -99,4 +100,4 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   }
-}
+};
