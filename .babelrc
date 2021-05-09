@@ -15,13 +15,12 @@
       }
     ]
   ],
-  "plugins": [
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        "regenerator": true
-      }
-    ],
-    "babel-plugin-transform-vite-meta-env"
-  ]
+  "env": {
+    "test": {
+      "plugins": [
+        "@babel/plugin-transform-runtime",
+        "babel-plugin-transform-vite-meta-env"
+      ]
+    }
+  }
 }

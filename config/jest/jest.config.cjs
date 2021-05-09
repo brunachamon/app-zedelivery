@@ -1,10 +1,14 @@
 module.exports = {
   rootDir: "../../",
-  automock: true,
   verbose: true,
+  testEnvironment: "jsdom",
   transform: {
     "^.+\\.(js|jsx)$": "babel-jest"
   },
+  setupFilesAfterEnv: [
+    "@testing-library/jest-dom/extend-expect"
+  ],
+  transformIgnorePatterns: ["<rootDir>/node_modules/react"],
   setupFiles: [
     "<rootDir>/src/setupTests.js"
   ],
