@@ -1,0 +1,43 @@
+.card-product {
+  background-color: #fbfbfb;
+  border-radius: 6px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 450px;
+
+  &:hover {
+    box-shadow: 0 10px 20px 0 rgb(0 0 0 / 5%);
+  }
+
+  &-image {
+    max-width: 33.3%;
+    max-height: 80px;
+    margin-right: 1rem;
+  }
+
+  &-content {
+    width: auto;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: fit-content;
+    padding: 1rem;
+
+    &-title {
+      width: 100%;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    &-actions {
+      width: 100%;
+      display: flex;
+      justify-content: end;
+      align-items: end;
+    }
+  }
+}
