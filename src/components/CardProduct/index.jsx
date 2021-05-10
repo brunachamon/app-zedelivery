@@ -3,8 +3,16 @@ import PropTypes from "prop-types";
 
 import Card from "../Card";
 import "./style.scss";
+import { formatMoneyWithCurrency } from "../../utils/money";
 
-const CardProduct = ({ children, className, title, images = [], ...props }) => {
+const CardProduct = ({ className, title, images = [], productVariants = [] }) => {
+  const {
+    subtitle = "",
+    description = "",
+    shortDescription = "",
+    price = 0
+  } = productVariants[0] || {};
+
   return (
     <Card className={`card-product ${className}`}>
       {images.length > 0 && <img className="card-product-image" src={images[0].url} alt="" />}
@@ -13,24 +21,30 @@ const CardProduct = ({ children, className, title, images = [], ...props }) => {
         <div className="card-product-content-title">
           {title}
         </div>
-        {children}
+        <div className="card-product-content-price">
+          {formatMoneyWithCurrency(price)}
+        </div>
         <div className="card-product-content-actions">
-          xasxa
-      </div>
+          {description || shortDescription || subtitle}
+        </div>
       </div>
     </Card>
   );
 };
 
 CardProduct.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node,
   className: PropTypes.string,
+  title: PropTypes.string.isRequired,
   images: PropTypes.arrayOf(
     PropTypes.shape({
       url: PropTypes.string
     })
-  )
+  ).isRequired,
+  productVariants: PropTypes.arrayOf(
+    PropTypes.shape({
+      price: PropTypes.number
+    })
+  ).isRequired
 };
 
 export default CardProduct;
