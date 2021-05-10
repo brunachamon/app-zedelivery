@@ -4,6 +4,7 @@ import { useJsApiLoader } from "@react-google-maps/api";
 
 import Routes from "./routes";
 import "./App.scss";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const { isLoaded } = useJsApiLoader({
@@ -15,6 +16,7 @@ const App = () => {
   return (
     <div className="App">
       <googleMapsContext.Provider value={{ isLoaded }}>
+        <Navbar />
         <BrowserRouter>
           <Routes />
         </BrowserRouter>

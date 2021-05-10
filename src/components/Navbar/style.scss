@@ -1,0 +1,21 @@
+ul[class="navbar"] {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fdd08d;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+
+  > .logo {
+    position: absolute;
+    color: #fff;
+    display: inline-block;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 1.1rem 0rem 1.1rem 1rem;
+    font-weight: 600;
+  }
+}
