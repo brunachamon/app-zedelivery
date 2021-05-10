@@ -1,5 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom/extend-expect";
 
 import CardProduct from "./";
@@ -10,7 +11,7 @@ describe("CardProduct", () => {
     title: "Produto 1",
     productVariants: [{
       price: 100,
-      subTitle: 'Cerveja teste',
+      subTitle: "Cerveja teste",
       description: "Cerveja de trigo"
     }]
   };
@@ -39,5 +40,35 @@ describe("CardProduct", () => {
     const imageElements = screen.queryByRole("img");
 
     expect(imageElements).not.toBeInTheDocument();
+  });
+
+  it("should render a component with 2 buttons: one to increase quantity, one for decrease", async () => {
+    render(<CardProduct {...props} />);
+
+    const buttons = screen.queryAllByRole("button");
+
+    expect(buttons).toHaveLength(2);
+
+    const increase = screen.getByText("+");
+    const decrease = screen.getByText("-");
+
+    expect(increase).toHaveClass("card-product-content-buttons--positive");
+    expect(decrease).toHaveClass("card-product-content-buttons--negative");
+  });
+
+  it("should render a component with action to increase and decrease buttons", async () => {
+    const handleIncrease = jest.fn();
+    const handleDecrease = jest.fn();
+
+    render(<CardProduct {...props} handleIncrease={handleIncrease} handleDecrease={handleDecrease} />);
+
+    const increase = screen.getByText("+");
+    const decrease = screen.getByText("-");
+
+    userEvent.click(increase);
+    expect(handleIncrease).toHaveBeenCalled();
+
+    userEvent.click(decrease);
+    expect(handleDecrease).toHaveBeenCalled();
   });
 });

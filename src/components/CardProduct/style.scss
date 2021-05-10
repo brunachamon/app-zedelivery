@@ -48,5 +48,33 @@
       align-items: end;
       color: #706d6d;
     }
+
+    &-buttons {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 1rem;
+
+      &--positive {
+        background-color: #137347;
+      }
+
+      &--negative {
+        background-color: #cf3939;
+      }
+
+      button {
+        cursor: pointer;
+        margin-left: .75rem;
+        height: 28px;
+        width: 28px;
+        border: none;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        color: #FFFFFF;
+        outline: none;
+      }
+    }
   }
 }

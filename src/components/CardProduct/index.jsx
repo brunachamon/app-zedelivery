@@ -5,7 +5,7 @@ import Card from "../Card";
 import "./style.scss";
 import { formatMoneyWithCurrency } from "../../utils/money";
 
-const CardProduct = ({ className, title, images = [], productVariants = [] }) => {
+const CardProduct = ({ className, title, handleIncrease, handleDecrease, images = [], productVariants = [] }) => {
   const {
     subtitle = "",
     description = "",
@@ -27,19 +27,17 @@ const CardProduct = ({ className, title, images = [], productVariants = [] }) =>
         <div className="card-product-content-actions">
           {description || shortDescription || subtitle}
         </div>
+        <div className="card-product-content-buttons">
+            <button type="button" className="card-product-content-buttons--positive" onClick={() => handleIncrease && handleIncrease()}>+</button>
+            <button type="button" className="card-product-content-buttons--negative" onClick={() => handleDecrease && handleDecrease()}>-</button>
+          </div>
       </div>
     </Card>
   );
 };
 
 CardProduct.propTypes = {
-  className: PropTypes.string,
   title: PropTypes.string.isRequired,
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      url: PropTypes.string
-    })
-  ),
   productVariants: PropTypes.arrayOf(
     PropTypes.shape({
       price: PropTypes.number,
@@ -47,7 +45,15 @@ CardProduct.propTypes = {
       description: PropTypes.string,
       shortDescription: PropTypes.string,
     })
-  ).isRequired
+  ).isRequired,
+  className: PropTypes.string,
+  handleIncrease: PropTypes.func,
+  handleDecrease: PropTypes.func,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string
+    })
+  )
 };
 
 export default CardProduct;
