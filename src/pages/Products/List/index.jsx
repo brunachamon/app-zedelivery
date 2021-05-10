@@ -8,7 +8,6 @@ const ProductsList = () => {
   const dispatch = useDispatch();
   const { products = [] } = useSelector(state => state.products);
 
-  console.log(">>> products list loaded", products);
   useEffect(() => {
     return () => dispatch(setLocation({}));
   }, [dispatch]);

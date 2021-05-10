@@ -32,6 +32,7 @@ module.exports = {
     "<rootDir>/src/assets/",
     "<rootDir>/src/services/",
     "<rootDir>/src/hooks/",
+    "<rootDir>/src/store.js",
     "<rootDir>/src/routes/index.js",
     "<rootDir>/src/utils/constants.js",
     "<rootDir>/src/pages",
@@ -40,4 +41,4 @@ module.exports = {
   moduleNameMapper: {
     "^.+\\.(css|scss|sass)$": "identity-obj-proxy"
   }
-}
+};

@@ -26,4 +26,4 @@ Note: The application will run in localhost:3000
 
 - Run `npm run lint` in root folder
 
-Delivered coverage:
+Delivered coverage: ~80% :rocket:

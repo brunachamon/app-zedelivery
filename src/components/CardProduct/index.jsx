@@ -39,7 +39,7 @@ CardProduct.propTypes = {
     PropTypes.shape({
       url: PropTypes.string
     })
-  ).isRequired,
+  ),
   productVariants: PropTypes.arrayOf(
     PropTypes.shape({
       price: PropTypes.number,
