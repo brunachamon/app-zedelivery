@@ -42,7 +42,10 @@ CardProduct.propTypes = {
   ).isRequired,
   productVariants: PropTypes.arrayOf(
     PropTypes.shape({
-      price: PropTypes.number
+      price: PropTypes.number,
+      subtitle: PropTypes.string,
+      description: PropTypes.string,
+      shortDescription: PropTypes.string,
     })
   ).isRequired
 };
