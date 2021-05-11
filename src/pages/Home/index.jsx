@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import Loader from "../../components/Loader";
+import Footer from "../../components/Footer";
 import InputSearch from "../../components/InputSearch";
 import CardEmptyState from "../../components/CardEmptyState";
 import useDistribuitorProducts from "../../hooks/useDistribuitorProducts";
@@ -43,26 +44,29 @@ const Home = () => {
   };
 
   return (
-    <div className="places">
-      <div className="places-image"></div>
+    <>
+      <div className="places">
+        <div className="places-image"></div>
 
-      {isGoogleMapsLoaded ? (
-        <div className="places-box p-3">
-          <div>
-            <h2>Digite seu endereço para pesquisar distribuidores próximos a você</h2>
+        {isGoogleMapsLoaded ? (
+          <div className="places-box p-3">
+            <div>
+              <h2>Digite seu endereço para pesquisar distribuidores próximos a você</h2>
+            </div>
+
+            <InputSearch handlePlaceSelected={handlePlaceSelected} className="places-input" />
+
+            {isLoading && <Loader />}
+
+            {(hasAdressFilled && !isLoading) && <CardEmptyState />}
           </div>
+        ) : (
+          <Loader />
+        )}
 
-          <InputSearch handlePlaceSelected={handlePlaceSelected} className="places-input" />
-
-          {isLoading && <Loader />}
-
-          {(hasAdressFilled && !isLoading) && <CardEmptyState />}
-        </div>
-      ) : (
-        <Loader />
-      )}
-
-    </div>
+      </div>
+      <Footer footerText="@BrunaChammon" />
+    </>
   );
 };
 
